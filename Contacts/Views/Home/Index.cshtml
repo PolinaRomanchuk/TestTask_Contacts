@@ -1,8 +1,26 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@using Contacts.Models;
+@model List<ContactViewModel>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+    <div>
+        <a href="/Home/CreateNewContact">Add </a>
+    </div>
+    @foreach (var viewModel in Model)
+    {
+        <div>
+            @viewModel.Name
+            <a href="/Home/DeleteContact?id=@viewModel.Id">Delete </a>
+            <a href="/Home/UpdateContact?id=@viewModel.Id">Update </a>
+        </div>
+    }
 </div>
+
+@*
+@section Styles{
+    <link rel="stylesheet" href="~/css/contactstyle.css">
+    }
+
+@section Scripts{
+    <script src="~/js/validationscript.js"></script>
+    } *@
+

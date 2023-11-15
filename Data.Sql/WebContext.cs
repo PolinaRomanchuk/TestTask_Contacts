@@ -6,18 +6,12 @@ namespace Data.Sql
     public class WebContext : DbContext
     {
         public DbSet<Contact> Contacts { get; set; }
-
         public WebContext() { }
 
         public WebContext(DbContextOptions<WebContext> options)
             : base(options)
         {
         }
-
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-        //}
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

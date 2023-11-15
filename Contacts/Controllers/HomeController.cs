@@ -1,32 +1,57 @@
 ﻿using Contacts.Models;
+using Contacts.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace Contacts.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private IContactService _contactService;
+        public HomeController(IContactService contactService)
         {
-            _logger = logger;
+            _contactService = contactService;
         }
-
         public IActionResult Index()
         {
-            return View();
+            var viewModels = _contactService.CreateContactsViewModelsFromDBModels();
+            return View(viewModels);
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult CreateNewContact()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult CreateNewContact(ContactViewModel viewModel)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (!ModelState.IsValid)
+            {
+                return View(viewModel);
+            }
+            _contactService.CreateContact(viewModel);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult UpdateContact(int id)
+        {
+            var viewModel = _contactService.CreateContactViewModelFromDBModelById(id);
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateContact(ContactViewModel viewModel)
+        {
+            _contactService.UpdateContact(viewModel.Id, viewModel.Name, viewModel.JobTitle, viewModel.MobilePhone, viewModel.BirthDate);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DeleteContact(int id)
+        {
+            _contactService.DeleteContact(id);
+            return RedirectToAction("Index");
         }
     }
 }
