@@ -17,12 +17,6 @@ namespace Contacts.Controllers
             return View(viewModels);
         }
 
-        [HttpGet]
-        public IActionResult CreateNewContact()
-        {
-            return View();
-        }
-
         [HttpPost]
         public IActionResult CreateNewContact(ContactViewModel viewModel)
         {
