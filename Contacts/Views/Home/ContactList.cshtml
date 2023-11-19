@@ -1,0 +1,100 @@
+﻿@using Contacts.Models;
+@model List<ContactViewModel>
+
+<button class="popup-btn" data-popup="#p1">Добавить новый контакт</button>
+<div class="popup" id="p1">
+    <div class="popup-content-add-new-contact">
+        <button class="exit-button" id="close-button">x</button>
+        <h1>Новый контакт</h1>
+        <form method="post" action="Home/CreateNewContact">
+            <div class="inputbox">
+                <input type="text" required="required" name="Name">
+                <span>Имя</span>
+            </div>
+            <div class="inputbox">
+                <input type="text" required="required" name="MobilePhone">
+                <span>Мобильный телефон</span>
+            </div>
+            <div class="inputbox">
+                <input type="text" required="required" name="BirthDate">
+                <span>Дата рождения</span>
+            </div>
+            <div class="inputbox">
+                <input type="text" required="required" name="JobTitle">
+                <span>Должность</span>
+            </div>
+            <div class="inputbox">
+                <input type="submit" value="Сохранить" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="popup" id="p2">
+    <div class="popup-content" name="update-popup">
+        <button class="exit-button" id="close-button">x</button>
+        <h1>Редактировать</h1>
+        <form method="post" action="Home/UpdateContact?id=Id">
+            <input type="hidden" name="Id" class="hiddenValueId" value="" />
+            <div class="inputbox">
+                <input type="text" required="required" name="Name" class="name-of-contact-for-update" value="">
+                <span>Имя</span>
+            </div>
+            <div class="inputbox">
+                <input type="text" required="required" name="MobilePhone" class="mobilePhone-of-contact-for-update" value="">
+                <span>Мобильный телефон</span>
+            </div>
+            <div class="inputbox">
+                <input type="text" required="required" name="BirthDate" class="birthDate-of-contact-for-update" value="">
+                <span>Дата рождения</span>
+            </div>
+            <div class="inputbox">
+                <input type="text" required="required" name="JobTitle" class="jobTitle-of-contact-for-update" value="">
+                <span>Должность</span>
+            </div>
+            <div class="inputbox">
+                <input type="submit" value="Сохранить" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Имя</th>
+            <th>Мобильный телефон</th>
+            <th>Должность</th>
+            <th> День рождения</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var viewModel in Model)
+        {
+            <tr name="container-contact">
+                <td>@viewModel.Name </td>
+                <td>@viewModel.MobilePhone</td>
+                <td>@viewModel.JobTitle</td>
+                <td>@viewModel.BirthDate</td>
+                <td><a href="/Home/DeleteContact?id=@viewModel.Id">Удалить</a></td>
+                <td>
+                    <input type="hidden" name="Id" class="ContactId" value="@viewModel.Id" />
+                    <button class="popup-btn" data-popup="#p2" name="update-button">Редактировать</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/contactstyle.css">
+    }
+
+@section Scripts{
+    @* <script src="~/js/validationscript.js"></script> *@
+    <script src="~/js/popupskript.js"></script>
+    }
+

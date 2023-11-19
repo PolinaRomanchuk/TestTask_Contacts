@@ -11,7 +11,7 @@ namespace Contacts.Controllers
         {
             _contactService = contactService;
         }
-        public IActionResult Index()
+        public IActionResult ContactList()
         {
             var viewModels = _contactService.CreateContactsViewModelsFromDBModels();
             return View(viewModels);
@@ -26,13 +26,6 @@ namespace Contacts.Controllers
             }
             _contactService.CreateContact(viewModel);
             return RedirectToAction("Index");
-        }
-
-        [HttpGet]
-        public IActionResult UpdateContact(int id)
-        {
-            var viewModel = _contactService.CreateContactViewModelFromDBModelById(id);
-            return View(viewModel);
         }
 
         [HttpPost]

@@ -21,9 +21,9 @@ namespace Contacts
             {
                 var contactdefault = new Contact
                 {
-                    Name = "Polina",
+                    Name = "Полина",
                     MobilePhone = "+375291231212",
-                    JobTitle = "Softaware engineer",
+                    JobTitle = "Специалист",
                     BirthDate = DateTime.Now.Date,
                 };
                 contactRepository.Create(contactdefault);

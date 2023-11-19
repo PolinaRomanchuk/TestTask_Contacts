@@ -42,7 +42,8 @@
     }
 
 
-#popup-window {
+.popup {
+    visibility: hidden;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -50,9 +51,82 @@
     background: white;
     border: 1px solid black;
     z-index: 10;
-    display: none;
 }
 
+    .popup.show {
+        visibility: visible;
+        opacity: 1;
+        overflow: hidden;
+    }
+
+.popup-content-add-new-contact {
+    position: relative;
+    padding: 50px 50px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+    .popup-content-add-new-contact h1 {
+        font-size: 2em;
+        border-left: 5px solid dodgerblue;
+        padding: 10px;
+        color: #000;
+        letter-spacing: 5px;
+        margin-bottom: 60px;
+        font-weight: bold;
+        padding-left: 10px;
+    }
+
+    .popup-content-add-new-contact .inputbox {
+        position: relative;
+        width: 350px;
+        height: 30px;
+        margin-bottom: 50px;
+    }
+
+        .popup-content-add-new-contact .inputbox input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            border: 2px solid #000;
+            outline: none;
+            background: none;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 1.2em;
+        }
+
+        .popup-content-add-new-contact .inputbox:last-child {
+            margin-bottom: 0;
+            left: 25%;
+        }
+
+        .popup-content-add-new-contact .inputbox span {
+            position: absolute;
+            top: 14px;
+            left: 20px;
+            font-size: 1em;
+            transition: 0.6s;
+            font-family: sans-serif;
+        }
+
+        .popup-content-add-new-contact .inputbox input:focus ~ span,
+        .popup-content-add-new-contact .inputbox input:valid ~ span {
+            transform: translateX(-13px) translateY(-35px);
+            font-size: 1em;
+        }
+
+        .popup-content-add-new-contact .inputbox [type="submit"] {
+            width: 50%;
+            background: dodgerblue;
+            color: #fff;
+            border: #fff;
+        }
+
+        .popup-content-add-new-contact .inputbox:hover [type="submit"] {
+            background: linear-gradient(45deg, greenyellow, dodgerblue);
+        }
 
 .exit-button {
     position: absolute;
@@ -82,73 +156,3 @@
     .exit-button:after {
         transform: rotate(-45deg);
     }
-
-
-.center {
-    position: relative;
-    padding: 50px 50px;
-    background: #fff;
-    border-radius: 10px;
-}
-
-    .center h1 {
-        font-size: 2em;
-        border-left: 5px solid dodgerblue;
-        padding: 10px;
-        color: #000;
-        letter-spacing: 5px;
-        margin-bottom: 60px;
-        font-weight: bold;
-        padding-left: 10px;
-    }
-
-    .center .inputbox {
-        position: relative;
-        width: 350px;
-        height: 30px;
-        margin-bottom: 50px;
-    }
-
-        .center .inputbox input {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            border: 2px solid #000;
-            outline: none;
-            background: none;
-            padding: 10px;
-            border-radius: 10px;
-            font-size: 1.2em;
-        }
-
-        .center .inputbox:last-child {
-            margin-bottom: 0;
-            left: 25%;
-        }
-
-        .center .inputbox span {
-            position: absolute;
-            top: 14px;
-            left: 20px;
-            font-size: 1em;
-            transition: 0.6s;
-            font-family: sans-serif;
-        }
-
-        .center .inputbox input:focus ~ span,
-        .center .inputbox input:valid ~ span {
-            transform: translateX(-13px) translateY(-35px);
-            font-size: 1em;
-        }
-
-        .center .inputbox [type="submit"] {
-            width: 50%;
-            background: dodgerblue;
-            color: #fff;
-            border: #fff;
-        }
-
-        .center .inputbox:hover [type="submit"] {
-            background: linear-gradient(45deg, greenyellow, dodgerblue);
-        }
