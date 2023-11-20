@@ -10,7 +10,7 @@
         <form method="post" action="Home/CreateNewContact">
             <div class="inputbox">
                 <input type="text" required="required" name="Name">
-                <span>Имя</span>
+                <span class ="error">Имя</span>
             </div>
             <div class="inputbox">
                 <input type="text" required="required" name="MobilePhone" class="mobile-phone-check">
@@ -18,11 +18,11 @@
             </div>
             <div class="inputbox">
                 <input type="date" required="required" name="BirthDate" class="birthDate-check">
-                <span>Дата рождения</span>
+                <span class="error">Дата рождения</span>
             </div>
             <div class="inputbox">
                 <input type="text" required="required" name="JobTitle">
-                <span>Должность</span>
+                <span class="error">Должность</span>
             </div>
             <div class="inputbox">
                 <input type="submit" value="Сохранить" />
@@ -39,19 +39,19 @@
             <input type="hidden" name="Id" class="hiddenValueId" value="" />
             <div class="inputbox">
                 <input type="text" required="required" name="Name" id="name-of-contact-for-update" value="">
-                <span>Имя</span>
+                <span class="error">Имя</span>
             </div>
             <div class="inputbox">
                 <input type="text" required="required" name="MobilePhone" id="mobilePhone-of-contact-for-update" class="mobile-phone-check" value="">
-                <span>Мобильный телефон</span>
+                <span class="error">Мобильный телефон</span>
             </div>
             <div class="inputbox">
                 <input type="text" required="required" name="BirthDate" id="birthDate-of-contact-for-update" value="" class="birthDate-check">
-                <span>Дата рождения</span>
+                <span class="error">Дата рождения</span>
             </div>
             <div class="inputbox">
                 <input type="text" required="required" name="JobTitle" id="jobTitle-of-contact-for-update" value="">
-                <span>Должность</span>
+                <span class="error">Должность</span>
             </div>
             <div class="inputbox">
                 <input type="submit" value="Сохранить" />

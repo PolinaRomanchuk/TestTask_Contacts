@@ -1,4 +1,4 @@
-$(".mobile-phone-check").bind("input", function (event) {
+$(".mobile-phone-check").on("input", function (event) {
     var myPhonevalue = $('.mobile-phone-check').val();
     var regularPhone = /^(\+375)(29|25|44|33)(\d{3})(\d{2})(\d{2})$/;
     var valid = regularPhone.test(myPhonevalue);
@@ -9,7 +9,7 @@ $(".mobile-phone-check").bind("input", function (event) {
     }
 });
 
-$(".birthDate-check").bind("input", function (event) {
+$(".birthDate-check").on("input", function (event) {
     let currentdate = new Date();
     var stringbirthDate = $('.birthDate-check').val();
     var dateofbirthday = Date.parse(stringbirthDate);
