@@ -25,20 +25,20 @@ namespace Contacts.Controllers
                 return View(viewModel);
             }
             _contactService.CreateContact(viewModel);
-            return RedirectToAction("Index");
+            return RedirectToAction("ContactList");
         }
 
         [HttpPost]
         public IActionResult UpdateContact(ContactViewModel viewModel)
         {
-            _contactService.UpdateContact(viewModel.Id, viewModel.Name, viewModel.JobTitle, viewModel.MobilePhone, viewModel.BirthDate);
-            return RedirectToAction("Index");
+            _contactService.UpdateContact(viewModel.Id, viewModel.Name, viewModel.JobTitle, viewModel.MobilePhone, DateTime.Parse(viewModel.BirthDate));
+            return RedirectToAction("ContactList");
         }
 
         public IActionResult DeleteContact(int id)
         {
             _contactService.DeleteContact(id);
-            return RedirectToAction("Index");
+            return RedirectToAction("ContactList");
         }
     }
 }

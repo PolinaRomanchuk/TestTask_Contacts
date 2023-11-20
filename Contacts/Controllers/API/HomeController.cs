@@ -8,11 +8,9 @@ namespace Contacts.Controllers.API
     [Route("/api/contact")]
     public class HomeApiController : Controller
     {
-        private IContactService _contactService;
         private IContactRepository _contactRepository;
-        public HomeApiController(IContactService contactService, IContactRepository contactRepository)
+        public HomeApiController(IContactRepository contactRepository)
         {
-            _contactService = contactService;
             _contactRepository = contactRepository;
         }
        

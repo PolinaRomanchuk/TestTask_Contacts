@@ -20,9 +20,8 @@ namespace Contacts.Services
                 Name = viewModel.Name,
                 MobilePhone = viewModel.MobilePhone,
                 JobTitle = viewModel.JobTitle,
-                BirthDate = viewModel.BirthDate,
-            };
-
+                BirthDate = DateTime.Parse(viewModel.BirthDate),
+        };
             _contactRepository.Create(dbContactModel);
         }
 
@@ -40,7 +39,7 @@ namespace Contacts.Services
             {
                 Id = contactDb.Id,
                 Name = contactDb.Name,
-                BirthDate = contactDb.BirthDate,
+                BirthDate = contactDb.BirthDate.Date.ToShortDateString(),
                 JobTitle = contactDb.JobTitle,
                 MobilePhone = contactDb.MobilePhone,
             };
@@ -53,7 +52,7 @@ namespace Contacts.Services
                 Id = dbModel.Id,
                 Name = dbModel.Name,
                 MobilePhone = dbModel.MobilePhone,
-                BirthDate = dbModel.BirthDate,
+                BirthDate = dbModel.BirthDate.Date.ToShortDateString(),
                 JobTitle = dbModel.JobTitle,
             }).ToList();
         }

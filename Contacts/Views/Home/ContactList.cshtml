@@ -6,17 +6,18 @@
     <div class="popup-content-add-new-contact">
         <button class="exit-button" id="close-button">x</button>
         <h1>Новый контакт</h1>
+        <p id="message"></p>
         <form method="post" action="Home/CreateNewContact">
             <div class="inputbox">
                 <input type="text" required="required" name="Name">
                 <span>Имя</span>
             </div>
             <div class="inputbox">
-                <input type="text" required="required" name="MobilePhone">
-                <span>Мобильный телефон</span>
+                <input type="text" required="required" name="MobilePhone" class="mobile-phone-check">
+                <span class="error">Мобильный телефон</span>
             </div>
             <div class="inputbox">
-                <input type="text" required="required" name="BirthDate">
+                <input type="date" required="required" name="BirthDate" class="birthDate-check">
                 <span>Дата рождения</span>
             </div>
             <div class="inputbox">
@@ -31,25 +32,25 @@
 </div>
 
 <div class="popup" id="p2">
-    <div class="popup-content" name="update-popup">
+    <div class="popup-content-update-contact" name="update-popup">
         <button class="exit-button" id="close-button">x</button>
         <h1>Редактировать</h1>
         <form method="post" action="Home/UpdateContact?id=Id">
             <input type="hidden" name="Id" class="hiddenValueId" value="" />
             <div class="inputbox">
-                <input type="text" required="required" name="Name" class="name-of-contact-for-update" value="">
+                <input type="text" required="required" name="Name" id="name-of-contact-for-update" value="">
                 <span>Имя</span>
             </div>
             <div class="inputbox">
-                <input type="text" required="required" name="MobilePhone" class="mobilePhone-of-contact-for-update" value="">
+                <input type="text" required="required" name="MobilePhone" id="mobilePhone-of-contact-for-update" class="mobile-phone-check" value="">
                 <span>Мобильный телефон</span>
             </div>
             <div class="inputbox">
-                <input type="text" required="required" name="BirthDate" class="birthDate-of-contact-for-update" value="">
+                <input type="text" required="required" name="BirthDate" id="birthDate-of-contact-for-update" value="" class="birthDate-check">
                 <span>Дата рождения</span>
             </div>
             <div class="inputbox">
-                <input type="text" required="required" name="JobTitle" class="jobTitle-of-contact-for-update" value="">
+                <input type="text" required="required" name="JobTitle" id="jobTitle-of-contact-for-update" value="">
                 <span>Должность</span>
             </div>
             <div class="inputbox">
@@ -94,7 +95,7 @@
     }
 
 @section Scripts{
-    @* <script src="~/js/validationscript.js"></script> *@
+    <script src="~/js/validationscript.js"></script>
     <script src="~/js/popupskript.js"></script>
     }
 
