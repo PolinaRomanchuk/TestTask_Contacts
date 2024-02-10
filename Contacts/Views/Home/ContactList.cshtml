@@ -1,7 +1,7 @@
 ﻿@using Contacts.Models;
 @model List<ContactViewModel>
 
-<button class="popup-btn" data-popup="#p1">Добавить новый контакт</button>
+<button class="popup-btn" data-popup="#p1" id="popup-btn-create">Добавить новый контакт</button>
 <div class="popup" id="p1">
     <div class="popup-content-add-new-contact">
         <button class="exit-button" id="close-button">x</button>
@@ -42,11 +42,11 @@
                 <span class="error">Имя</span>
             </div>
             <div class="inputbox">
-                <input type="text" required="required" name="MobilePhone" id="mobilePhone-of-contact-for-update" class="mobile-phone-check" value="">
+                <input type="text" required="required" name="MobilePhone" id="mobilePhone-of-contact-for-update" class="mobile-phone-check">
                 <span class="error">Мобильный телефон</span>
             </div>
             <div class="inputbox">
-                <input type="text" required="required" name="BirthDate" id="birthDate-of-contact-for-update" value="" class="birthDate-check">
+                <input type="datetime-local" required="required" name="BirthDate" id="birthDate-of-contact-for-update" value="" class="birthDate-check">
                 <span class="error">Дата рождения</span>
             </div>
             <div class="inputbox">

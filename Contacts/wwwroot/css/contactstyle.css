@@ -41,6 +41,11 @@
         border-radius: 0 8px 8px 0;
     }
 
+ #popup-btn-create {
+    padding: 10px 15px;
+    margin-bottom: 30px;
+}
+
 
 .popup {
     visibility: hidden;
@@ -227,3 +232,4 @@
         .popup-content-update-contact .inputbox:hover [type="submit"] {
             background: linear-gradient(45deg, greenyellow, dodgerblue);
         }
+

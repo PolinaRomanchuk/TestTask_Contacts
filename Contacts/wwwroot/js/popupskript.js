@@ -23,10 +23,9 @@ $(document).ready(function () {
         $(".hiddenValueId").val(contactId);
         $.get(`/api/contact/GetModel?id=${contactId}`)
             .then(function (dataObj) {
-                var date = new Date(dataObj.birthDate)
                 $("#name-of-contact-for-update").val(dataObj.name)
                 $("#mobilePhone-of-contact-for-update").val(dataObj.mobilePhone)
-                $("#birthDate-of-contact-for-update").val(new Intl.DateTimeFormat().format(date))
+                $("#birthDate-of-contact-for-update").val(dataObj.birthDate)
                 $("#jobTitle-of-contact-for-update").val(dataObj.jobTitle)
             });
     });
